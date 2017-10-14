@@ -12,11 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('index');
-})->name('index');
+    return view('home');
+})->name('home');
 
 Auth::routes();
 
 Route::get('/login', 'Auth\\LoginController@show')->name('login');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/backoffice', 'HomeController@index')->name('dashboard');

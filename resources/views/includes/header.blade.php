@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="mainNavigation">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('index') }}">ACCUEIL <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('home') }}">ACCUEIL <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="#">NOUVELLES</a></li>
                 @guest
