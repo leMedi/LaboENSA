@@ -8,7 +8,12 @@
 
         <div class="main-menu">
             <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li class="active"><a href="index.html"> <i class="icon-home"></i><span>Home</span></a></li>
+                <li class="{{ Request::is('backoffice') ? 'active' : '' }}">
+                    <a href="{{ URL::route('dashboard') }}"> <i class="icon-home"></i><span>Home</span></a>
+                </li>
+                <li class="{{ Request::is('backoffice/profile') ? 'active' : '' }}">
+                    <a href="{{ URL::route('profile') }}"> <i class="icon-user"></i><span>Profile</span></a>
+                </li>
             </ul>
         </div> <!-- .main-menu -->
     </div> <!-- .side-navbar-wrapper -->
