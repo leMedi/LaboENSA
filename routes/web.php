@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/login', 'Auth\\LoginController@show')->name('login');
 
-Route::get('/backoffice', 'HomeController@index')->name('dashboard');
+Route::get('/backoffice', 'DashboardController@show')->name('dashboard');
