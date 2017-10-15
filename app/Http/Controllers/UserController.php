@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Redirect;
 use Validator;
-
-
 use Auth;
 
 class UserController extends Controller
@@ -59,5 +57,31 @@ class UserController extends Controller
             return Redirect::route('profile');
         }
     }
+
+    /**
+     * Update user password.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function changePassword(Request $request)
+    {
+        $user = Auth::user();
+
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        if ($validator->fails())
+            return back()->withErrors($validator);
+
+        $password = $request->input('Password');
+
+        $user->password = bcrypt($password);
+        $user->save();
+
+        return back();
+    }
+
+
 
 }

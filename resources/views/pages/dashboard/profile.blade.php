@@ -13,12 +13,12 @@
             
             <div class="col-md-6">
                 @component('components.dashboard.card', [ 'title' => 'Mot de Pass' ])
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ URL::to('/backoffice/password') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group">
                             <label for="password">Mot de pass</label>
-                            <input type="text" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" aria-describedby="password input">
+                            <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" aria-describedby="password input">
                             
                             @if ($errors->has('password'))
                                 <small class="text-danger">
@@ -29,7 +29,7 @@
 
                         <div class="form-group">
                             <label for="password_confirmation">Confirmation</label>
-                            <input type="text" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation" aria-describedby="password confirmation input">
+                            <input type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation" aria-describedby="password confirmation input">
                             
                             @if ($errors->has('password_confirmation'))
                                 <small class="text-danger">
