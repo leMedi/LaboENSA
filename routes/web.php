@@ -20,3 +20,6 @@ Auth::routes();
 Route::get('/login', 'Auth\\LoginController@show')->name('login');
 
 Route::get('/backoffice', 'DashboardController@show')->name('dashboard');
+
+
+Route::get('/backoffice/profile', 'UserController@show')->name('profile');
