@@ -25,3 +25,7 @@ Route::get('/backoffice', 'DashboardController@show')->name('dashboard');
 Route::get('/backoffice/profile', 'UserController@show')->name('profile');
 Route::post('/backoffice/profile', 'UserController@updateProfile');
 Route::post('/backoffice/password', 'UserController@changePassword');
+
+
+Route::get('/backoffice/article', 'ArticleController@create');
+Route::post('/backoffice/article', 'ArticleController@store');

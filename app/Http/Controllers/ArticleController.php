@@ -4,9 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Auth;
+use Validator;
+use Redirect;
 
 class ArticleController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +38,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view("pages.dashboard.createArticle")->with('user', Auth::user());
     }
 
     /**
@@ -35,7 +49,29 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Auth::user();
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|max:50',
+            'content' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withInput()
+                    ->withErrors($validator);
+        } else {
+            // store
+            $article = new Article();
+            $article->title  = Input::get('title');
+            $article->content  = Input::get('content');
+            $article->author = Auth::user()->id;
+            
+            if(!$request->has('draft'))
+                $article->status = 'pending';
+
+            $article->save();
+
+            return back();
+        }
     }
 
     /**
