@@ -50,7 +50,7 @@
 
             <div class="col-md-12 mt-4">
                 @component('components.dashboard.card', [ 'title' => 'Information Profile' ])
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('profile') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group">
