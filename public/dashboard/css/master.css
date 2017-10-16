@@ -29,3 +29,36 @@ section .card-block .line {
     border-bottom: 1px dashed #eee;
     margin: 20px 0 30px;
 }
+
+
+ul.news li {
+    border-bottom: 1px solid #f3f3f3;
+    padding: .75rem 1.25rem;
+}
+
+ul.news li:last-child {
+    border-bottom: none;
+}
+
+ul.news li .left-col {
+    padding-right: 20px;
+}
+
+ul.news li .left-col .icon {
+    margin-right: 10px;
+}
+
+ul.news .update-date {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #bbb;
+    display: block;
+}
+
+ul.news .update-date span {
+    font-size: 0.7em;
+    font-weight: 300;
+    color: #aaa;
+    line-height: 0.5em;
+    display: block;
+}

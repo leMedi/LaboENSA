@@ -28,7 +28,13 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        return view('pages.dashboard.articles', [
+            'user'     => $user,
+            'published' => $user->articles()->where('status' , 'published')->get(),
+            'drafts' => $user->articles()->where('status', 'draft')->get(),
+            'pending' => $user->articles()->where('status', 'pending')->get(),
+        ]);
     }
 
     /**

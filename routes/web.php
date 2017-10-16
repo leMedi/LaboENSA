@@ -27,5 +27,6 @@ Route::post('/backoffice/profile', 'UserController@updateProfile');
 Route::post('/backoffice/password', 'UserController@changePassword');
 
 
+Route::get('/backoffice/articles', 'ArticleController@index');
 Route::get('/backoffice/article', 'ArticleController@create');
 Route::post('/backoffice/article', 'ArticleController@store');

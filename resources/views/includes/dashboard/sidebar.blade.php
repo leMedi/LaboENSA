@@ -14,6 +14,9 @@
                 <li class="{{ Request::is('backoffice/profile') ? 'active' : '' }}">
                     <a href="{{ URL::route('profile') }}"> <i class="icon-user"></i><span>Profile</span></a>
                 </li>
+                <li class="{{ Request::is('backoffice/articles') ? 'active' : '' }}">
+                    <a href="{{ URL::to('backoffice/articles') }}"> <i class="icon-check"></i><span>Articles</span></a>
+                </li>
             </ul>
         </div> <!-- .main-menu -->
     </div> <!-- .side-navbar-wrapper -->
