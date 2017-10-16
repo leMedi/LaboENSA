@@ -26,4 +26,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get all articles the user wrote
+     */
+    public function articles(){
+        return $this->hasMany("App\Article", 'author');
+    }
 }
