@@ -99,7 +99,11 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        // check if article blongs to user
+        return view('pages.dashboard.editArticle', [
+            'user'      => Auth::user(),
+            'article'   => $article,
+        ]);
     }
 
     /**
@@ -111,7 +115,27 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        // check if article blongs to user
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|max:50',
+            'content' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withInput()
+                    ->withErrors($validator);
+        } else {
+            // update
+            $article->title  = Input::get('title');
+            $article->content  = Input::get('content');
+            
+            if(!$request->has('draft'))
+                $article->status = 'pending';
+
+            $article->save();
+
+            return back();
+        }
     }
 
     /**
