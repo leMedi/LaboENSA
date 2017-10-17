@@ -2,9 +2,14 @@
 
 @section('content')
     @component('components.dashboard.section', [ 'title' => 'Articles' ])
+        @slot('actions')
+            <a class="btn btn-success" href="/backoffice/article"><i class="icon-bill"></i> Nouveau Article</a>
+        @endslot
         <div class="row mb-4">
             <div class="col-md-6">
-                @component('components.dashboard.card', [ 'title' => 'Brouillons' ])
+                @component('components.dashboard.card', [
+                    'title' => 'Brouillons'
+                ])
                     <ul class="news list-unstyled">
                         @foreach($drafts as $d)
                             <li class="d-flex justify-content-between"> 
