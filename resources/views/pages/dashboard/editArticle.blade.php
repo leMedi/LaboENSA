@@ -51,6 +51,20 @@
                     </form>
                 @endcomponent
             </div> <!-- .col -->
+
+            <div class="col-md-6">
+                @component('components.dashboard.card', [ 'title' => 'Operations' ])
+                    <form action="{{ URL::to('backoffice/article/' . $article->id) }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="_method" value="DELETE">
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary">
+                                !! Supprimer l'article !!
+                            </button>
+                        </div> <!-- .form-group -->
+                    </form>
+                @endcomponent
+            </div> <!-- .col -->
         </div> <!-- .row -->
     @endcomponent
 @stop

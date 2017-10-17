@@ -32,3 +32,4 @@ Route::get('/backoffice/article', 'ArticleController@create');
 Route::post('/backoffice/article', 'ArticleController@store');
 Route::get('/backoffice/article/{article}', 'ArticleController@edit');
 Route::post('/backoffice/article/{article}', 'ArticleController@update');
+Route::delete('/backoffice/article/{article}', 'ArticleController@destroy');
