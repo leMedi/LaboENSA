@@ -30,6 +30,14 @@ section .card-block .line {
     margin: 20px 0 30px;
 }
 
+.section-actions {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.section-actions a {
+    margin-top: -15px;
+}
 
 ul.news li {
     border-bottom: 1px solid #f3f3f3;
